@@ -1,0 +1,14 @@
+{
+  "name": "test-back",
+  "version": "1.0.0",
+  "description": "cicd test",
+  "main": "index.js",
+  "author": "parksujeong",
+  "license": "MIT",
+  "scripts": {
+    "start":"node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
