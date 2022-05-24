@@ -10,16 +10,16 @@ jobs:
           keys:
             - dep-bundle-{{ checksum "package.json"}}
       - run: 
-        name: install
-        command: yarn install
+          name: install
+          command: yarn install
       - save_cache
           paths:
             - node_modules
           keys:
             - dep-bundle-{{ checksum "package.json"}}
       - run:
-        name: 
-        command: yarn build
+          name: build
+          command: yarn build
 workflows:
   back-CI:
     jobs:
