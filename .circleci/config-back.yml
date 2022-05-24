@@ -6,20 +6,16 @@ jobs:
     working_directory: ~/cicd_circle-argo/back
     steps:
       - checkout
-      - restore_cache
+      - restore_cache:
           keys:
             - dep-bundle-{{ checksum "package.json"}}
-      - run: 
-          name: install
-          command: yarn install
-      - save_cache
+      - run: yarn install
+      - save_cache:
           paths:
             - node_modules
           keys:
             - dep-bundle-{{ checksum "package.json"}}
-      - run:
-          name: build
-          command: yarn build
+      - run: yarn build
 workflows:
   back-CI:
     jobs:
