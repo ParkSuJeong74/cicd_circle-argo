@@ -3,7 +3,7 @@ jobs:
   build-back:
     docker:
       - image: circleci/node:16 # node버전
-    working_directory: ./back
+    working_directory: ~/cicd_circle-argo/back
     steps:
       - checkout
       - restore_cache
