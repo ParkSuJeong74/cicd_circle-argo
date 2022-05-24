@@ -1,0 +1,26 @@
+version: 2.1
+jobs:
+  build-back:
+    docker:
+      - image: circleci/node:16 # node버전
+    working_directory: ./back
+    steps:
+      - checkout
+      - restore_cache
+          keys:
+            - dep-bundle-{{ checksum "package.json"}}
+      - run: 
+        name: install
+        command: yarn install
+      - save_cache
+          paths:
+            - node_modules
+          keys:
+            - dep-bundle-{{ checksum "package.json"}}
+      - run:
+        name: 
+        command: yarn build
+workflows:
+  back-CI:
+    jobs:
+      - build-back
